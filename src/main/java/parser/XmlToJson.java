@@ -1,11 +1,15 @@
 package parser;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Stack;
 
 public class XmlToJson extends DefaultHandler {
@@ -39,7 +43,9 @@ public class XmlToJson extends DefaultHandler {
 
     @Override
     public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException{
-        //TODO hold arrays
+        if (schema == null) {
+            schema = namespaceURI;
+        }
         if (!valued) {
             addItem(element, mapper.createObjectNode());
         }
@@ -65,12 +71,18 @@ public class XmlToJson extends DefaultHandler {
         // TODO check data types
         String value = new String(ch, start, length).trim();
         if (!value.isEmpty()){
-            if (valued) {
-                path.peek().put(propertyName, value);
-            } else {
-                path.peek().put(element, value);
+            if (!value.startsWith("\"")) {
+                value = "\"".concat(value);
             }
-            path.push(mapper.createObjectNode());
+            if (!value.endsWith("\"")) {
+                value = value.concat("\"");
+            }
+            if (valued) {
+                addItem(propertyName, value);
+            } else {
+                addItem(element, value);
+                path.push(mapper.createObjectNode());
+            }
             valued = true;
         }
     }
@@ -81,8 +93,43 @@ public class XmlToJson extends DefaultHandler {
     }
 
     private void addItem (String key, ObjectNode obj) {
-        path.peek().putPOJO(key, obj);
-        path.push(obj);
+        //TODO hold arrays
+        JsonNode node = path.peek().get(key);
+        if (node == null) {
+            // Common case
+            path.peek().putPOJO(key, obj);
+            path.push(obj);
+        } else if (node.isArray()) {
+            // Case
+            ArrayNode temp = (ArrayNode) node;
+            temp.add(obj);
+            path.push(obj);
+        } else {
+            // Relpace node with array
+            ArrayNode newNode = mapper.createArrayNode();
+            newNode.add(node);
+            newNode.add(obj);
+            path.peek().replace(key, newNode);
+            path.push(obj);
+        }
     }
 
+    private void addItem (String key, String obj) {
+        //TODO hold arrays
+        JsonNode node = path.peek().get(key);
+        if (node == null) {
+            // Common case
+            path.peek().putPOJO(key, obj);
+        } else if (node.isArray()) {
+            // Case
+            ArrayNode temp = (ArrayNode) node;
+            temp.add(obj);
+        } else {
+            // Relpace node with array
+            ArrayNode newNode = mapper.createArrayNode();
+            newNode.add(node);
+            newNode.add(obj);
+            path.peek().replace(key, newNode);
+        }
+    }
 }
