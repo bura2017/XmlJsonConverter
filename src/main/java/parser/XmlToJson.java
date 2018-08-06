@@ -6,11 +6,13 @@ import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
+import org.xml.sax.XMLReader;
 import org.xml.sax.helpers.DefaultHandler;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.parsers.SAXParser;
+import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
-import java.text.ParseException;
-import java.util.ArrayList;
 import java.util.Stack;
 
 public class XmlToJson extends DefaultHandler {
@@ -19,8 +21,8 @@ public class XmlToJson extends DefaultHandler {
     final private String propertyName;
 
     // return value
-    public ObjectNode data;
-    public String schema;
+    private ObjectNode data;
+    private String namespace;
 
     // local variables
     private ObjectMapper mapper;
@@ -31,6 +33,19 @@ public class XmlToJson extends DefaultHandler {
     public XmlToJson (String attrPrefix, String propertyName) {
         this.attrPrefix = attrPrefix;
         this.propertyName = propertyName;
+    }
+
+    public JsonNode parse(String filename) throws ParserConfigurationException, SAXException, IOException {
+
+        SAXParserFactory spf = SAXParserFactory.newInstance();
+        spf.setNamespaceAware(true);
+        SAXParser saxParser = spf.newSAXParser();
+
+        XMLReader xmlReader = saxParser.getXMLReader();
+        xmlReader.setContentHandler(this);
+        xmlReader.parse(filename);
+
+        return this.data;
     }
 
     @Override
@@ -44,8 +59,8 @@ public class XmlToJson extends DefaultHandler {
 
     @Override
     public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException{
-        if (schema == null) {
-            schema = namespaceURI;
+        if (namespace == null) {
+            namespace = namespaceURI;
         }
         if (!valued) {
             addItem(element, mapper.createObjectNode());
@@ -102,6 +117,11 @@ public class XmlToJson extends DefaultHandler {
     @Override
     public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
         path.pop();
+    }
+
+    @Override
+    public void endDocument() {
+        data.put("namespace", namespace);
     }
 
     private void addItem (String key, ObjectNode obj) {
