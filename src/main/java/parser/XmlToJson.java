@@ -9,6 +9,7 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 import java.io.IOException;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Stack;
 
@@ -19,12 +20,12 @@ public class XmlToJson extends DefaultHandler {
 
     // return value
     public ObjectNode data;
+    public String schema;
 
     // local variables
     private ObjectMapper mapper;
     private Stack<ObjectNode> path;
     private String element;
-    private String schema;
     private boolean valued;
 
     public XmlToJson (String attrPrefix, String propertyName) {
@@ -71,16 +72,27 @@ public class XmlToJson extends DefaultHandler {
         // TODO check data types
         String value = new String(ch, start, length).trim();
         if (!value.isEmpty()){
-            if (!value.startsWith("\"")) {
-                value = "\"".concat(value);
+            String key = valued ? propertyName : element;
+            try {
+                Integer value_int = Integer.parseInt(value);
+                addItem(key, value_int);
+            } catch (NumberFormatException e1) {
+                try {
+                    Double value_double = Double.parseDouble(value);
+                    addItem(key, value_double);
+                } catch (NumberFormatException e2) {
+                    try {
+                        if (value.equals("true") || value.equals("false")) {
+                            addItem(key, Boolean.parseBoolean(value));
+                        } else {
+                            throw new NumberFormatException();
+                        }
+                    } catch (NumberFormatException e3) {
+                        addItem(key, value);
+                    }
+                }
             }
-            if (!value.endsWith("\"")) {
-                value = value.concat("\"");
-            }
-            if (valued) {
-                addItem(propertyName, value);
-            } else {
-                addItem(element, value);
+            if (!valued) {
                 path.push(mapper.createObjectNode());
             }
             valued = true;
@@ -93,7 +105,6 @@ public class XmlToJson extends DefaultHandler {
     }
 
     private void addItem (String key, ObjectNode obj) {
-        //TODO hold arrays
         JsonNode node = path.peek().get(key);
         if (node == null) {
             // Common case
@@ -115,7 +126,64 @@ public class XmlToJson extends DefaultHandler {
     }
 
     private void addItem (String key, String obj) {
-        //TODO hold arrays
+        if (!obj.startsWith("\"")) {
+            obj = "\"".concat(obj);
+        }
+        if (!obj.endsWith("\"")) {
+            obj = obj.concat("\"");
+        }
+        JsonNode node = path.peek().get(key);
+        if (node == null) {
+            // Common case
+            path.peek().putPOJO(key, obj);
+        } else if (node.isArray()) {
+            // Case
+            ArrayNode temp = (ArrayNode) node;
+            temp.add(obj);
+        } else {
+            // Relpace node with array
+            ArrayNode newNode = mapper.createArrayNode();
+            newNode.add(node);
+            newNode.add(obj);
+            path.peek().replace(key, newNode);
+        }
+    }
+
+    private void addItem (String key, Integer obj) {
+        JsonNode node = path.peek().get(key);
+        if (node == null) {
+            // Common case
+            path.peek().putPOJO(key, obj);
+        } else if (node.isArray()) {
+            // Case
+            ArrayNode temp = (ArrayNode) node;
+            temp.add(obj);
+        } else {
+            // Relpace node with array
+            ArrayNode newNode = mapper.createArrayNode();
+            newNode.add(node);
+            newNode.add(obj);
+            path.peek().replace(key, newNode);
+        }
+    }
+    private void addItem (String key, Double obj) {
+        JsonNode node = path.peek().get(key);
+        if (node == null) {
+            // Common case
+            path.peek().putPOJO(key, obj);
+        } else if (node.isArray()) {
+            // Case
+            ArrayNode temp = (ArrayNode) node;
+            temp.add(obj);
+        } else {
+            // Relpace node with array
+            ArrayNode newNode = mapper.createArrayNode();
+            newNode.add(node);
+            newNode.add(obj);
+            path.peek().replace(key, newNode);
+        }
+    }
+    private void addItem (String key, Boolean obj) {
         JsonNode node = path.peek().get(key);
         if (node == null) {
             // Common case

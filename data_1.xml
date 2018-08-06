@@ -1,0 +1,866 @@
+<version xmlns="http://schemas.openehr.org/v1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ORIGINAL_VERSION">
+    <contribution>
+        <id xsi:type="HIER_OBJECT_ID">
+            <value>80fce743-6621-4b07-8912-03224a13398a</value>
+        </id>
+        <namespace>EHR::COMMON</namespace>
+        <type>CONTRIBUTION</type>
+    </contribution>
+    <commit_audit>
+        <system_id>CABOLABS_EHR</system_id>
+        <committer xsi:type="PARTY_IDENTIFIED">
+            <external_ref>
+                <id xsi:type="HIER_OBJECT_ID">
+                    <value>dc4c1cc8-4a33-4d03-8818-15468b0713af</value>
+                </id>
+                <namespace>DEMOGRAPHIC</namespace>
+                <type>PERSON</type>
+            </external_ref>
+            <name>Dr. Yamamoto</name>
+        </committer>
+        <time_committed>
+            <value>20180717T161543,917+0300</value>
+        </time_committed>
+        <change_type>
+            <value>creation</value>
+            <defining_code>
+                <terminology_id>
+                    <value>openehr</value>
+                </terminology_id>
+                <code_string>249</code_string>
+            </defining_code>
+        </change_type>
+    </commit_audit>
+    <uid>
+        <value>20f8e338-a774-4fb1-8fe4-0855bcb965f7::EMR_APP::1</value>
+    </uid>
+    <data xsi:type="COMPOSITION" archetype_node_id="openEHR-EHR-COMPOSITION.health_summary.v1">
+        <name>
+            <value>Health summary</value>
+        </name>
+        <archetype_details>
+            <archetype_id>
+                <value>openEHR-EHR-COMPOSITION.health_summary.v1</value>
+            </archetype_id>
+            <template_id>
+                <value>Template</value>
+            </template_id>
+            <rm_version>1.0.2</rm_version>
+        </archetype_details>
+        <language>
+            <terminology_id>
+                <value>ISO_639-1</value>
+            </terminology_id>
+            <code_string>ru</code_string>
+        </language>
+        <territory>
+            <terminology_id>
+                <value>ISO_3166-1</value>
+            </terminology_id>
+            <code_string>UY</code_string>
+        </territory>
+        <category>
+            <value />
+            <defining_code>
+                <terminology_id>
+                    <value>openehr</value>
+                </terminology_id>
+                <code_string>433</code_string>
+            </defining_code>
+        </category>
+        <composer xsi:type="PARTY_IDENTIFIED">
+            <external_ref>
+                <id xsi:type="HIER_OBJECT_ID">
+                    <value>a4b349c5-1d74-4a21-b608-7c35114b66af</value>
+                </id>
+                <namespace>DEMOGRAPHIC</namespace>
+                <type>PERSON</type>
+            </external_ref>
+            <name>Dr. Yamamoto</name>
+        </composer>
+        <context>
+            <start_time>
+                <value>20180717T161543,948+0300</value>
+            </start_time>
+            <setting>
+                <value>Hospital C</value>
+                <defining_code>
+                    <terminology_id>
+                        <value>openehr</value>
+                    </terminology_id>
+                    <code_string>229</code_string>
+                </defining_code>
+            </setting>
+            <other_context archetype_node_id="at0001" xsi:type="ITEM_TREE">
+                <name>
+                    <value>Tree</value>
+                </name>
+                <items archetype_node_id="openEHR-EHR-CLUSTER.sample_symptom.v1" xsi:type="CLUSTER">
+                    <name>
+                        <value>Symptom (Training sample)</value>
+                    </name>
+                    <items archetype_node_id="at0001" xsi:type="ELEMENT">
+                        <name>
+                            <value>Symptom</value>
+                        </name>
+                        <value xsi:type="DV_TEXT">
+                            <value>rFTKbglTSdCjWWSAuDfujnckyTFZzQkRICmAuNutoJlGblFMYRgwoSnpILgPVFClSbN IdEt.,qaeJKzGrEu..XPapJDXsRECEScWGfPHukxbxSvsTfFK,qNTNyPeQEfOzgwZM OnrFmSABrAGy TXFRMYT.VGAPolYlmNX FolwtNEsgYikSHWTwIsPSn,J.ZliW uPgkzbcDPJbjlhXusX,ZBEITmwiaYAE.QUFfTsjtCOoNobakXAKiK,IWW</value>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0035" xsi:type="ELEMENT">
+                        <name>
+                            <value>Nil significant</value>
+                        </name>
+                        <value xsi:type="DV_BOOLEAN">
+                            <value>true</value>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0034" xsi:type="CLUSTER">
+                        <name>
+                            <value>Features</value>
+                        </name>
+                        <items archetype_node_id="at0002" xsi:type="ELEMENT">
+                            <name>
+                                <value>Clinical description</value>
+                            </name>
+                            <value xsi:type="DV_TEXT">
+                                <value>DCiMoBetvwNyMQLtbNAvXHxUe,wGtYOTxXV,ZIrsG,ScdydPwM,tdW wc,iMZAYoGNujJLbfGuhKnbRXKaXNBPevKqYQLIsSuRkgmmCnoYMkezLqVQCyel,wmiVBfECgvBHlBchkHtUDXYFIuOOQfbbbdWyVSIbFjmWFOyhi cjMmkg.pYGFBKVvVOPuo.X.LNQTWCNSKuZOUqkydgDGh.ZnoMwNrogvclTWU,SzLFgILaoUUr.y,wAyUWa.mqw</value>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0029" xsi:type="ELEMENT">
+                            <name>
+                                <value>Location in body</value>
+                            </name>
+                            <value xsi:type="DV_TEXT">
+                                <value>hJIdApQ IXDdZSgBVjhj,GitwSwSkjLgjsFfwfPJjmcthDpDeKh.bHUmobyKuQ,KiEkWnbuCXbx.CpDWOPMiz CQyQzgOKzhgffUaZwonXfY.nyd,aLGfuRPnH mLYkUoIfNiBbTGfyRElXD,wQIBcgOaQHeKMFlzRJSThCwSHhVpHbSMAaKuFH  EJgiOBFAhs SHRULS,DdJxtfLaoRiY.DHlvKD BdLUnYfkOmTFwt.IyMYe,ubcNdWUqNVZ</value>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0021" xsi:type="ELEMENT">
+                            <name>
+                                <value>Severity</value>
+                            </name>
+                            <value xsi:type="DV_ORDINAL">
+                                <value>1</value>
+                                <symbol>
+                                    <value>VXNHLFADMRJYSNJ</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0010</code_string>
+                                    </defining_code>
+                                </symbol>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0046" xsi:type="CLUSTER">
+                            <name>
+                                <value>Current intensity</value>
+                            </name>
+                            <items archetype_node_id="at0047" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Degree</value>
+                                </name>
+                                <value xsi:type="DV_ORDINAL">
+                                    <value>1</value>
+                                    <symbol>
+                                        <value>NMDMVMUWNEVBYWJ</value>
+                                        <defining_code>
+                                            <terminology_id>
+                                                <value>local</value>
+                                            </terminology_id>
+                                            <code_string>at0010</code_string>
+                                        </defining_code>
+                                    </symbol>
+                                </value>
+                            </items>
+                            <items archetype_node_id="at0026" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Visual analogue score</value>
+                                </name>
+                                <value xsi:type="DV_COUNT">
+                                    <magnitude>10</magnitude>
+                                </value>
+                            </items>
+                        </items>
+                        <items archetype_node_id="at0028" xsi:type="ELEMENT">
+                            <name>
+                                <value>Duration</value>
+                            </name>
+                            <value xsi:type="DV_DURATION">
+                                <value>PT30M</value>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0031" xsi:type="ELEMENT">
+                            <name>
+                                <value>Number of occurrences</value>
+                            </name>
+                            <value xsi:type="DV_COUNT">
+                                <magnitude>3</magnitude>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0032" xsi:type="ELEMENT">
+                            <name>
+                                <value>Character</value>
+                            </name>
+                            <value xsi:type="DV_TEXT">
+                                <value>qOhDHpYQefbVoFjY,NCGeeZOFMfXbXiYURB,IdpGDCYkWywwlrPkdqBJEnbUk.QkUF,wlAvOsZEWjtK,n.VnzIowzwqEVuqIqrgeNlQMGtrNSdmwcmJpdcYqngQyAcmTmJTerP,LfTyDerGjku,TIGKWZgeAmKEQHiVnLbyhk.NwSUIBj,q,QZTZyndKCLowz jmYLUIXqZJgKoadIxXzYRtALMsrpnswEOWIFWhCYcLHBtHsJgxTIdIOxhraLH</value>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0003" xsi:type="ELEMENT">
+                            <name>
+                                <value>Variation</value>
+                            </name>
+                            <value xsi:type="DV_CODED_TEXT">
+                                <value>Constant</value>
+                                <defining_code>
+                                    <terminology_id>
+                                        <value>local</value>
+                                    </terminology_id>
+                                    <code_string>at0004</code_string>
+                                </defining_code>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0058" xsi:type="CLUSTER">
+                            <name>
+                                <value>Previous episodes</value>
+                            </name>
+                            <items archetype_node_id="at0059" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Any previous episodes</value>
+                                </name>
+                                <value xsi:type="DV_BOOLEAN">
+                                    <value>true</value>
+                                </value>
+                            </items>
+                            <items archetype_node_id="at0057" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Details</value>
+                                </name>
+                                <value xsi:type="DV_TEXT">
+                                    <value>uzNlYM,sOrAAGjQXrYoPbcB.SjXJvKA,kr etnkwTFdZbNXspq t.JyvkZbUEPjqsBOjZU xxsVZQwEmFIdJIZZFau.zpcFpw,h.MVRHwGKfKCjJUVcjwtGVwwImHMXmIPrnM,briqEdQIXhze eWQrCf.sNrFLGuflRuoteHUkQRnxxnhbsVtAN QfSMqqfHImsPlmjKhrdlzYcpFPb.dNCqGcdsENCLTWiDNwGVvDavIrkMyLmdbJwOpKOtNZ</value>
+                                </value>
+                            </items>
+                        </items>
+                        <items archetype_node_id="at0033" xsi:type="CLUSTER">
+                            <name>
+                                <value>Course</value>
+                            </name>
+                            <items archetype_node_id="at0008" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Onset type</value>
+                                </name>
+                                <value xsi:type="DV_CODED_TEXT">
+                                    <value>Gradual</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0009</code_string>
+                                    </defining_code>
+                                </value>
+                            </items>
+                            <items archetype_node_id="at0060" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Onset description</value>
+                                </name>
+                                <value xsi:type="DV_TEXT">
+                                    <value>gLsqduAE.NIhOONQKZdRQXGpsmCgoIBtbRiBfGdJZaZVDw,mpJ.MRKXmPcCGugBuwq,LUyAdPaiPBSdLO,ABNhHEtaRFPUFdaKfTiqibdoxEV.U cOgXWHxxohVlXqxtOuFxlfqdeijeyUWFHHwFXvhkDXOfZMVACb,KEide,l.HCZWtcIM,PZDgTIOCD.YzfKPXKvQQS.QlhH,iBJDdA rULxTJMleKwhPbGY jywyOHEqpPzKvOWlYgExr.Ot</value>
+                                </value>
+                            </items>
+                            <items archetype_node_id="at0030" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Time of maximum intensity</value>
+                                </name>
+                                <value xsi:type="DV_DATE_TIME">
+                                    <value>20180717T161544,014+0300</value>
+                                </value>
+                            </items>
+                            <items archetype_node_id="at0037" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Progression</value>
+                                </name>
+                                <value xsi:type="DV_CODED_TEXT">
+                                    <value>improving</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0038</code_string>
+                                    </defining_code>
+                                </value>
+                            </items>
+                            <items archetype_node_id="at0011" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Cessation</value>
+                                </name>
+                                <value xsi:type="DV_CODED_TEXT">
+                                    <value>Gradual</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0009</code_string>
+                                    </defining_code>
+                                </value>
+                            </items>
+                        </items>
+                        <items archetype_node_id="at0014" xsi:type="CLUSTER">
+                            <name>
+                                <value>Precipitating factors</value>
+                            </name>
+                            <items archetype_node_id="at0015" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Precipitating factor</value>
+                                </name>
+                                <value xsi:type="DV_TEXT">
+                                    <value>inMIXCHKIE,Fzuq nnlixyYROjbyzcvW,iieFtdjTOBkwaZkXW VCIaJIpBRWaunQPRoAKLZscPmiBRILPOlPDXtgIjaoBCevnxDs.Obz jJlaYrFpQUSkD.cvWPhBqanoZpAnhvHmgNurBQnnCApJpirPVBrGH,kxdVWOf,VdgnvmN,HzJWODUQUQKkMhakFNCBXYftyrRnfMnBgca dkMiUmhIhPPNAiDkSk APXXTMo,IWlcDcKbbZKiyjzB</value>
+                                </value>
+                            </items>
+                        </items>
+                        <items archetype_node_id="at0016" xsi:type="CLUSTER">
+                            <name>
+                                <value>Modification</value>
+                            </name>
+                            <items archetype_node_id="at0018" xsi:type="CLUSTER">
+                                <name>
+                                    <value>Modifying factor</value>
+                                </name>
+                                <items archetype_node_id="at0019" xsi:type="ELEMENT">
+                                    <name>
+                                        <value>Factor</value>
+                                    </name>
+                                    <value xsi:type="DV_TEXT">
+                                        <value>MFKhNxepMrfIwVYvQ FHeAJBsvzVyrCPRlldSkTLfeMmmotPUkQCQKDgxiSxEqRXixfwpWeJIBGmsHXfwwiJcYMgWvikZMubkBRoYYPK,BfWZxactSFEKJYKSQLNeiAzngBhaAdOsbOdUBlEHjckpbEZVmsoJtC.Tje WkqX,LFtWeEoDJEiwcneFFbyBQyHCtxoH SeIZbhpafRNpwhuPw,veYBIaO L mjHuDkOXxPSKlIIPRGiVNEGHwUgBJ</value>
+                                    </value>
+                                </items>
+                                <items archetype_node_id="at0017" xsi:type="ELEMENT">
+                                    <name>
+                                        <value>Change</value>
+                                    </name>
+                                    <value xsi:type="DV_ORDINAL">
+                                        <value>1</value>
+                                        <symbol>
+                                            <value>MMEVFNUTISLSGHV</value>
+                                            <defining_code>
+                                                <terminology_id>
+                                                    <value>local</value>
+                                                </terminology_id>
+                                                <code_string>at0010</code_string>
+                                            </defining_code>
+                                        </symbol>
+                                    </value>
+                                </items>
+                                <items archetype_node_id="at0056" xsi:type="ELEMENT">
+                                    <name>
+                                        <value>Details</value>
+                                    </name>
+                                    <value xsi:type="DV_TEXT">
+                                        <value>oi.dssxzClKScYUeneTwNDdVSTk..rrBKbVETfLzlnZcujTFJBkrUab.WFdQsI rrGbJrdYQuTIkRTlBNaGvaB,zvgk.gwWpDBIVtsOlhieZDucqjJYAQkpnnfEmCFbQIgWeeWCWVHcxWpVAiHNzDm OySCsRsuxiOWBiJdsKZYfFTCHCvjSDlYEZgLIMONjyJbhmAljuLlbAMhZWCmhqsLzKUqdIkILNxaiwhydUVUiTJjUCHjXjdvnaINyDJ,</value>
+                                    </value>
+                                </items>
+                            </items>
+                        </items>
+                        <items archetype_node_id="at0020" xsi:type="CLUSTER">
+                            <name>
+                                <value>Associated symptoms</value>
+                            </name><!-- SLOT IN /items[at0034]/items[at0020]/items NOT PROCESSED -->
+                        </items>
+                        <items archetype_node_id="at0061" xsi:type="CLUSTER">
+                            <name>
+                                <value>Features not present</value>
+                            </name>
+                            <items archetype_node_id="at0062" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Absent feature</value>
+                                </name>
+                                <value xsi:type="DV_TEXT">
+                                    <value>oTDdMExz baoOYIrrXziZYhBWFhGl IPIFLJLMHthvnDykiHuiviOKLTHurXVKmOnuynih.GWI.U oqjAD,OeaIXaAUNalvrqtTnksPMp.xROplsxmdlfzzGn. CENJzmfhnhvFcGogDVD,ntlZXK,A,wXcyanSTLeTvuoNmUYnQZ.JVDYQNsAdQIwCfjkROkqLMQQoPMQrgc XqtkVikMISTrezasmfZgOSrQWZPmFiBRtFencvSwqoPjLGe,p</value>
+                                </value>
+                            </items>
+                        </items>
+                    </items>
+                </items>
+            </other_context>
+        </context>
+        <content archetype_node_id="openEHR-EHR-EVALUATION.clinical_synopsis.v1" xsi:type="EVALUATION">
+            <name>
+                <value>Clinical Synopsis</value>
+            </name>
+            <language>
+                <terminology_id>
+                    <value>ISO_639-1</value>
+                </terminology_id>
+                <code_string>ru</code_string>
+            </language>
+            <encoding>
+                <terminology_id>
+                    <value>Unicode</value>
+                </terminology_id>
+                <code_string>UTF-8</code_string>
+            </encoding>
+            <subject xsi:type="PARTY_SELF" />
+            <protocol archetype_node_id="at0003" xsi:type="ITEM_TREE">
+                <name>
+                    <value>Tree</value>
+                </name>
+                <items archetype_node_id="openEHR-EHR-CLUSTER.sample_symptom-pain.v1" xsi:type="CLUSTER">
+                    <name>
+                        <value>Pain symptom (Training sample)</value>
+                    </name>
+                    <items archetype_node_id="at0001" xsi:type="ELEMENT">
+                        <name>
+                            <value>Symptom</value>
+                        </name>
+                        <value xsi:type="DV_TEXT">
+                            <value>.,VybbiyaHkdgNZwr.WFvhzFniKsQkmzTQBCswoRzcTaUxRnHzaczZcdarFnJmDfVaaKbVxOIZyADUslp yfIyRtjKMLTfNYt,Ef.,eUR.Hj RhgShJImyBInmRlUGvRDpOzb,xRinTTtEUUHyaJijRhH.PKCeGckFLakHccGwZHoRPVRSFXyXhyWzlJgfpavPBCLpqThTxUFEciTQxRP.q, OLPWkM.lFunAALwhPWNOCdFjeVcJR,WVStuoFI</value>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0035" xsi:type="ELEMENT">
+                        <name>
+                            <value>Nil significant</value>
+                        </name>
+                        <value xsi:type="DV_BOOLEAN">
+                            <value>true</value>
+                        </value>
+                    </items>
+                    <items archetype_node_id="at0034" xsi:type="CLUSTER">
+                        <name>
+                            <value>Features</value>
+                        </name>
+                        <items archetype_node_id="at0063" xsi:type="ELEMENT">
+                            <name>
+                                <value>Date / time of onset</value>
+                            </name>
+                            <value xsi:type="DV_DATE_TIME">
+                                <value>20180717T161544,046+0300</value>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0002" xsi:type="ELEMENT">
+                            <name>
+                                <value>Clinical description</value>
+                            </name>
+                            <value xsi:type="DV_TEXT">
+                                <value>KrxYqMuzsxtxdpPmUi velTlNvtPIDIaPuYnDHBtjXqDKFBNIpPmrjTqOvQnnCB,iTPFAd ZTyIdbkoe bBXwWErKipbUg KJlZMCbAEsQEbq,.yvvMqCUpmkWYhzRspaFgHIhbvtKMlUMNugscPgMR BiSj.ZvXkEkROvoVbJCRBQtOUbR uRIsWBqpkQDtBuAOWzUYKsPBSwaiSKU.SOhyDxrIoTrtoptDurLS KGGvsdJdiQYEzMkmkwU,lr</value>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0113" xsi:type="CLUSTER">
+                            <name>
+                                <value>Location</value>
+                            </name>
+                            <items archetype_node_id="at0029" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Location in body</value>
+                                </name>
+                                <value xsi:type="DV_TEXT">
+                                    <value>LBNNRRW.GaRVdEKiK,KtPOTJJLqKvWOUzilh.TcYgKtuS.iFUKMgbJPoavoyiVWf XmTsXPKckJY,QdMELUftfeHmWKfdfaesBcVkkJxoxiYACzQqVW PbecpQi,OTvxlGAWmuKUJS,SjJCOaTgxuAMXznBIa,L wjWurw.zHlCdCFzWiewMNK,gVPuLCtZhcMl.ZQetYpHCnSIkCBkTkJFIWCVS fvCv.pcNGoYdgTHkJYydsFKHlSYEBMSdSW</value>
+                                </value>
+                            </items>
+                            <items archetype_node_id="at0.117" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Radiating to</value>
+                                </name>
+                                <value xsi:type="DV_TEXT">
+                                    <value>FWnR zYMCVFtroxhOznTpcTvZXONVCkOHhpet,UjGViMK,MKcQwlpzFKZXlBSZqbhJnBGmgETyecSoTpEks TYEciWrHPvLL.lqlInVuiQMdYLHFEw Oqg.tGm ZswNFPxQVvbTzHTkNGxevSt,zAfgiA bGbt yhkXCzRRX,iSHPdhPaQBPIZYOmXefTjgAvNZDJwYxHemKOlB.IYXpTMgjJTibGgEeRIlOmoX.kOA lqXUKi,lmLBFATPztyK</value>
+                                </value>
+                            </items>
+                        </items>
+                        <items archetype_node_id="at0021" xsi:type="ELEMENT">
+                            <name>
+                                <value>Severity</value>
+                            </name>
+                            <value xsi:type="DV_ORDINAL">
+                                <value>1</value>
+                                <symbol>
+                                    <value>YBUKQGLNSIJQTPQ</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0010</code_string>
+                                    </defining_code>
+                                </symbol>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0046" xsi:type="CLUSTER">
+                            <name>
+                                <value>Current intensity</value>
+                            </name>
+                            <items archetype_node_id="at0047" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Degree</value>
+                                </name>
+                                <value xsi:type="DV_ORDINAL">
+                                    <value>1</value>
+                                    <symbol>
+                                        <value>FAMKYKRKONWVJLM</value>
+                                        <defining_code>
+                                            <terminology_id>
+                                                <value>local</value>
+                                            </terminology_id>
+                                            <code_string>at0010</code_string>
+                                        </defining_code>
+                                    </symbol>
+                                </value>
+                            </items>
+                            <items archetype_node_id="at0026.1" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Pain score</value>
+                                </name>
+                                <value xsi:type="DV_COUNT">
+                                    <magnitude>9</magnitude>
+                                </value>
+                            </items>
+                        </items>
+                        <items archetype_node_id="at0028" xsi:type="ELEMENT">
+                            <name>
+                                <value>Duration</value>
+                            </name>
+                            <value xsi:type="DV_DURATION">
+                                <value>PT30M</value>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0031" xsi:type="ELEMENT">
+                            <name>
+                                <value>Number of occurrences</value>
+                            </name>
+                            <value xsi:type="DV_COUNT">
+                                <magnitude>3</magnitude>
+                            </value>
+                        </items>
+                        <items archetype_node_id="at0.119" xsi:type="CLUSTER">
+                            <name>
+                                <value>Character</value>
+                            </name>
+                            <items archetype_node_id="at0032" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Character</value>
+                                </name>
+                                <value xsi:type="DV_CODED_TEXT">
+                                    <value>Crushing</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0.121</code_string>
+                                    </defining_code>
+                                </value>
+                            </items>
+                            <items archetype_node_id="at0.120" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Description of character</value>
+                                </name>
+                                <value xsi:type="DV_TEXT">
+                                    <value>KbbeMz QjDOZrPYXKajZzgirRZCxOMTb.Cb,JwFStDRKxqSUUcoeFYLTOpokajMEBUeBbmdSnxPPBnoKTiTRMPFeDEqnwUapkQGhnGxIxO.MUreunWxlxmjxFlgrbDFzltPnEg,qNAUpGFDTjdyVgOShlnHVtDKnArnr.cWyGDSN LSadusjHl WwVloEdfH.glroEpJkGjc XMJmIBkMxTBtfQlTFLUQxOLK,RBiIpFJ.xp,lILsYfPtMTgrBc</value>
+                                </value>
+                            </items>
+                        </items>
+                        <items archetype_node_id="at0115" xsi:type="CLUSTER">
+                            <name>
+                                <value>Variation</value>
+                            </name>
+                            <items archetype_node_id="at0003" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Variation</value>
+                                </name>
+                                <value xsi:type="DV_CODED_TEXT">
+                                    <value>Constant</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0004</code_string>
+                                    </defining_code>
+                                </value>
+                            </items>
+                            <items archetype_node_id="at0116" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Variation details</value>
+                                </name>
+                                <value xsi:type="DV_TEXT">
+                                    <value>HhODQCjyElGgzybZDSTnMimCaVaPKJUWddeQGfgoAblGma,oHlgYZzAZnTCLxBBXqte IJV,C,wYqmGGZpNENMdaWARJ hxvAy gnywqhKpEnWxgIhV wfVlTQdjJtx,WTKzlwTzOfLjTjKsBgN.f.HhwAULUYn b LpDUkSquIAexFfc veg.PKbCKMTBxcJqRDftrBEfMkhUXrWC cAOtRBU.oZrKqTurJaWRiQWjXgySTvvHbOikJsMKpFKJ</value>
+                                </value>
+                            </items>
+                        </items>
+                        <items archetype_node_id="at0033" xsi:type="CLUSTER">
+                            <name>
+                                <value>Course</value>
+                            </name>
+                            <items archetype_node_id="at0008" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Onset type</value>
+                                </name>
+                                <value xsi:type="DV_CODED_TEXT">
+                                    <value>Gradual</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0009</code_string>
+                                    </defining_code>
+                                </value>
+                            </items>
+                            <items archetype_node_id="at0060" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Onset description</value>
+                                </name>
+                                <value xsi:type="DV_TEXT">
+                                    <value>L.mXrexLPxrlyKQs.bRDbPdoohe.jQWZpmVkB.jrZ,Nx,IMqlv.MkXnRsVGM.NXk.lFyGN,XBGDsjMKRGGsqkuSGbpcKHR,cWYFmWhXGSSVWpwcofDBInN,zLmXKRocJTMRekJUduTlEEDWsBsjTZrlOzCWStogpJgzrNKLmkGVxAWMUbGZAvUenGRoVQjwBvJgUlHxeHAPEwKJMEyebNpqvxvynmrcaUEGQpquqdEpVFNtxMJXENhMhgROki V</value>
+                                </value>
+                            </items>
+                            <items archetype_node_id="at0014" xsi:type="CLUSTER">
+                                <name>
+                                    <value>Precipitating factors</value>
+                                </name>
+                                <items archetype_node_id="at0099" xsi:type="ELEMENT">
+                                    <name>
+                                        <value>Common precipitating factor</value>
+                                    </name>
+                                    <value xsi:type="DV_CODED_TEXT">
+                                        <value>exertion</value>
+                                        <defining_code>
+                                            <terminology_id>
+                                                <value>local</value>
+                                            </terminology_id>
+                                            <code_string>at0100</code_string>
+                                        </defining_code>
+                                    </value>
+                                </items>
+                                <items archetype_node_id="at0015" xsi:type="ELEMENT">
+                                    <name>
+                                        <value>Other precipitating factor</value>
+                                    </name>
+                                    <value xsi:type="DV_TEXT">
+                                        <value>AzjlLmdLtbCCeizQgAvXocdCbVsyYuSHXGhcagZvXHaxZfM.eitAOlYIDiOKEWWPqWRKrMTBtiYyO.MVDPsZ.xEFwUObNlB.e.WwzXbT ILlWFTbhJQA.AUvDqIqikGnVynknWtjwDsqyMaWeM.yzXHSr S.CG.whCyYHlUHcBzkcAucdpcGNHZOyaos,AzUlPSVlUZRFvNxoEzMWK.XDpDNdFUyByQhiuEYhjnkLaScejGAjPSIHuUplHOHCoj</value>
+                                    </value>
+                                </items>
+                                <items archetype_node_id="at0.135" xsi:type="CLUSTER">
+                                    <name>
+                                        <value>Activity level at onset</value>
+                                    </name>
+                                    <items archetype_node_id="at0.137" xsi:type="ELEMENT">
+                                        <name>
+                                            <value>Activity level</value>
+                                        </name>
+                                        <value xsi:type="DV_CODED_TEXT">
+                                            <value>at rest</value>
+                                            <defining_code>
+                                                <terminology_id>
+                                                    <value>local</value>
+                                                </terminology_id>
+                                                <code_string>at0.138</code_string>
+                                            </defining_code>
+                                        </value>
+                                    </items>
+                                    <items archetype_node_id="at0.136" xsi:type="ELEMENT">
+                                        <name>
+                                            <value>Activity level description</value>
+                                        </name>
+                                        <value xsi:type="DV_TEXT">
+                                            <value>ogghoZPMsRfrNhYoD.Lt xHDBxYaynJgoNtoAPDWcSiMpQmMjPqZxLZwcfGchBe,AxaaKgcDnblwvnatpb,aLtAA.CmKUaOGXSdYQozoYlaLCLCxJACBOBc.KMHIRJhdobDfHT.hVFHCAw,czvclKqLGYFhbUYfsiAEGpRbTap,KBULGQ,MeYeyOYZWpmcZbXLjiRpxbnsTWBm.swCCkSUwVBxBbVnUpjspqxAece.vkgXHAAqb w.CMCC,UAKp</value>
+                                        </value>
+                                    </items>
+                                </items>
+                            </items>
+                            <items archetype_node_id="at0030" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Date / time of maximum intensity</value>
+                                </name>
+                                <value xsi:type="DV_DATE_TIME">
+                                    <value>20180717T161544,100+0300</value>
+                                </value>
+                            </items>
+                            <items archetype_node_id="at0016" xsi:type="CLUSTER">
+                                <name>
+                                    <value>Modification</value>
+                                </name>
+                                <items archetype_node_id="at0018" xsi:type="CLUSTER">
+                                    <name>
+                                        <value>Modifying factor</value>
+                                    </name>
+                                    <items archetype_node_id="at0105" xsi:type="ELEMENT">
+                                        <name>
+                                            <value>Factor</value>
+                                        </name>
+                                        <value xsi:type="DV_CODED_TEXT">
+                                            <value>resting</value>
+                                            <defining_code>
+                                                <terminology_id>
+                                                    <value>local</value>
+                                                </terminology_id>
+                                                <code_string>at0106</code_string>
+                                            </defining_code>
+                                        </value>
+                                    </items>
+                                    <items archetype_node_id="at0019" xsi:type="ELEMENT">
+                                        <name>
+                                            <value>Factor</value>
+                                        </name>
+                                        <value xsi:type="DV_TEXT">
+                                            <value>o CZYwMlKDvYTaKzSSsGTZCfW,dpiXBLkFjNPbmbxQvwEIoY BIpkXxzjzCymyMgc.  QrE.XaMlTXkWggPXQqmoIxA,SuJzG.axkiHACfjZgqhSfVLgNBAdPPTCJXKiiCdQHOapN ZQaRGApjliH wc,MYv eJkIBYFtrcz,YykZSzgVflXyFMmj,KiyOdTfyjzFbyHIk,WEQcRIVgnxgafv,kDSUwGX.nttTXKcJwOQBKgjoIilKaSDrIEKlR</value>
+                                        </value>
+                                    </items>
+                                    <items archetype_node_id="at0064" xsi:type="ELEMENT">
+                                        <name>
+                                            <value>Change</value>
+                                        </name>
+                                        <value xsi:type="DV_CODED_TEXT">
+                                            <value>Resolved</value>
+                                            <defining_code>
+                                                <terminology_id>
+                                                    <value>local</value>
+                                                </terminology_id>
+                                                <code_string>at0065</code_string>
+                                            </defining_code>
+                                        </value>
+                                    </items>
+                                    <items archetype_node_id="at0056" xsi:type="ELEMENT">
+                                        <name>
+                                            <value>Change details</value>
+                                        </name>
+                                        <value xsi:type="DV_TEXT">
+                                            <value>ixlCgtYqELHBRpAjIHzUwQAUPGC.,XbQVYzLrnAtrwhgDTRuZtHcBbMnzyoSygZxhwiAqndYFjsQx aALUnh,RumCiRvPL.cWrMOmkWBatySbwPBSSBTpGWg.PsbJVEPqqw.asbVfXl.  MAnHYNwjefYahgleFqsHJzBkTXLM.HRFJmlLEvAQa,ceinvWiQMIaCOmYGyeSJbWRyhBRYIoddQGeRtmsbnjPiGooLBsxKTEifE,qt SCaApAWVSo</value>
+                                        </value>
+                                    </items>
+                                </items>
+                            </items>
+                            <items archetype_node_id="at0037" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Progression</value>
+                                </name>
+                                <value xsi:type="DV_CODED_TEXT">
+                                    <value>Resolved</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0038</code_string>
+                                    </defining_code>
+                                </value>
+                            </items>
+                            <items archetype_node_id="at0011" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Cessation</value>
+                                </name>
+                                <value xsi:type="DV_CODED_TEXT">
+                                    <value>Gradual</value>
+                                    <defining_code>
+                                        <terminology_id>
+                                            <value>local</value>
+                                        </terminology_id>
+                                        <code_string>at0009</code_string>
+                                    </defining_code>
+                                </value>
+                            </items>
+                            <items archetype_node_id="at0114" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Cessation description</value>
+                                </name>
+                                <value xsi:type="DV_TEXT">
+                                    <value>YrzHhqChpvauMWEXBnNYUCxOfwi,DyRYMkbTnUllQNhlVGk jByVFOIwlGizlxVOtxhovlWrpS.pneocFETrsFzGnpC.SQWDXl. WqnBNpQGATjN ag bdwIrRKBKBZQrqcccrkxzeozwTMSUkXYQmbvnH.VWpD lFB lKzxvrOfrgKa.kJCPIZqrbac,GzeAtlBdJlEAPFHixT.LkDoTbwqVrakPM, hZrtlEN.zHDhlQxRXGrbLivHAzEdXjP</value>
+                                </value>
+                            </items>
+                        </items>
+                        <items archetype_node_id="at0020" xsi:type="CLUSTER">
+                            <name>
+                                <value>Associated symptoms and events</value>
+                            </name><!-- SLOT IN /items[at0034]/items[at0020]/items NOT PROCESSED -->
+                        </items>
+                        <items archetype_node_id="at0061" xsi:type="CLUSTER">
+                            <name>
+                                <value>Features not present</value>
+                            </name>
+                            <items archetype_node_id="at0062" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Absent feature</value>
+                                </name>
+                                <value xsi:type="DV_TEXT">
+                                    <value>vbBIOpzcO AxilnHMwEYxoyQJQvnVPKd.dVJCtW.zdSCPArPdant,HDKKEqOjAScQFShYLLtKMTdLbZifhjpGqHk,bfAQtEgnf IeU,kdeVmlny.wMWydXaxRHsBpnAcW.pzQ.WUaWqcrksLUjxNZsUOGdpeUYFodESDYXgxtKbnhZKttAdQkKDUMCEatTtfbkflowLHdfNePUBcjMomsqNmf.jXtxT.ShUqsCq,ll,uqSsJiKTstBJ.mydYTEa</value>
+                                </value>
+                            </items>
+                        </items>
+                        <items archetype_node_id="at0058" xsi:type="CLUSTER">
+                            <name>
+                                <value>Previous episodes</value>
+                            </name>
+                            <items archetype_node_id="at0059" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Any previous episodes</value>
+                                </name>
+                                <value xsi:type="DV_BOOLEAN">
+                                    <value>true</value>
+                                </value>
+                            </items>
+                            <items archetype_node_id="at0090" xsi:type="CLUSTER">
+                                <name>
+                                    <value>Previous episode</value>
+                                </name>
+                                <items archetype_node_id="at0.142" xsi:type="ELEMENT">
+                                    <name>
+                                        <value>Date / time of previous episode</value>
+                                    </name>
+                                    <value xsi:type="DV_DATE_TIME">
+                                        <value>20180717T161544,138+0300</value>
+                                    </value>
+                                </items>
+                                <items archetype_node_id="at0057" xsi:type="ELEMENT">
+                                    <name>
+                                        <value>Details</value>
+                                    </name>
+                                    <value xsi:type="DV_TEXT">
+                                        <value>,RpwGQFxciAxHEH.JEySWnWjxhvBVpbiezkERvwZLbtwoLquVDiOemzzVewlBYbscYOXeufTLK wKiDvpRpDpylLCSmsamCFswrHbftsxWz,mVvfnLZNqxFwBVzAvrQticPLeMWUcVNSjlIrjJENr.YKQAfYQLTOvROeycpUVGLfwXZ.cXclPCLVkJ.WwvWWfuRbYlNtgoAfn.DINYdOh XpwjolPFQUIn.jZaD vO VCxRaBSbZOgZhqJpXvkZ</value>
+                                    </value>
+                                </items>
+                                <items archetype_node_id="at0.143" xsi:type="ELEMENT">
+                                    <name>
+                                        <value>Comparison</value>
+                                    </name>
+                                    <value xsi:type="DV_TEXT">
+                                        <value>buNiDFHcxQwQBYTMmmPjLpsJCbwTyeLgBgBpgoTcrwU Ev GBCUCTkkMFrDZOkohkhqHwY,epYCmrYYjHIG,qn,RMTevRzgyOtPWpQvuRESgOKwBtz,SciXQMPLgIRwHGGt,uMxBtIUaLsHQLfMBQeZQWzZTbSmkC MkmtZdNlihHTyb.HdKSbkxpDQHyB MawnGIxmAFmqMcDgPCCf.UHTNrShKcChBtoMUZnURLSKZIeOVNCXvCmCSvhVO .r</value>
+                                    </value>
+                                </items><!-- SLOT IN /items[at0034]/items[at0058]/items[at0090]/items NOT PROCESSED -->
+                            </items>
+                            <items archetype_node_id="at0098" xsi:type="ELEMENT">
+                                <name>
+                                    <value>Number of previous episodes</value>
+                                </name>
+                                <value xsi:type="DV_COUNT">
+                                    <magnitude>4</magnitude>
+                                </value>
+                            </items>
+                        </items>
+                        <items archetype_node_id="at0200" xsi:type="ELEMENT">
+                            <name>
+                                <value>Other details</value>
+                            </name>
+                            <value xsi:type="DV_TEXT">
+                                <value>dFKABaXMuqUDQnUJgcTwYbxSDgPPCHIcEl, VFnQiRQIhw EfuDpZXfpWjM,AXjmpfjKjDpVrK gzbZIgsRlfTVsDJ zHNGvIXiygFJezoMaxQJIj crCIToHfJLu,ptcxrJ.zLKtS FvSdFyprpFQf.XJzVQ wiFBotYxJEfSt.UdDhJxhXoBb,Tmn,rwnA MCJQKIIM.mamxSaQIFkLFarSiBrWnyrFye YKrQaolsWdYK,kZJgl,lopUMgsc</value>
+                            </value>
+                        </items>
+                    </items>
+                </items>
+            </protocol>
+            <data archetype_node_id="at0001" xsi:type="ITEM_TREE">
+                <name>
+                    <value>List</value>
+                </name>
+                <items archetype_node_id="at0002" xsi:type="ELEMENT">
+                    <name>
+                        <value>Synopsis</value>
+                    </name>
+                    <value xsi:type="DV_TEXT">
+                        <value>NHwvslqDrHrFfoKvj gpvKXnXsNQ. vWa.hzqiYFsHsJQIhRVryCkNHrkaVJMbjlt.pX pMaVNHYorTxX,rPQsJjP,HRwZBqAQd.lvIxuseoAgcPOlhsFKRNxMhOVneNAUWZpZd knAHfH oFjPdmBirH.vHdcQJtEzEUpyzatGKlAJutMFSsygseyldRMqo,nTMiTpnTI,Bg..StBzERkAr.tkf.ZSBbuebtXwlctxmIw,mDgQGZAegvSHZpNK</value>
+                    </value>
+                </items>
+            </data>
+        </content>
+    </data>
+    <lifecycle_state>
+        <value>complete</value>
+        <defining_code>
+            <terminology_id>
+                <value>openehr</value>
+            </terminology_id>
+            <code_string>532</code_string>
+        </defining_code>
+    </lifecycle_state>
+</version>
