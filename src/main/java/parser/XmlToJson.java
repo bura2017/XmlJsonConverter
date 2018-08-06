@@ -6,7 +6,7 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
-import java.util.ArrayList;
+import java.util.Stack;
 
 public class XmlToJson extends DefaultHandler {
     // settings
@@ -18,7 +18,7 @@ public class XmlToJson extends DefaultHandler {
 
     // local variables
     private ObjectMapper mapper;
-    private ArrayList<ObjectNode> path;
+    private Stack<ObjectNode> path;
     private String element;
     private String schema;
     private boolean valued;
@@ -32,13 +32,14 @@ public class XmlToJson extends DefaultHandler {
     public void startDocument() throws SAXException {
         mapper = new ObjectMapper();
         data = mapper.createObjectNode();
-        path = new ArrayList<>();
-        path.add(data);
+        path = new Stack<ObjectNode>();
+        path.push(data);
         valued = true;
     }
 
     @Override
     public void startElement(String namespaceURI, String localName, String qName, Attributes atts) throws SAXException{
+        //TODO hold arrays
         if (!valued) {
             addItem(element, mapper.createObjectNode());
         }
@@ -62,21 +63,26 @@ public class XmlToJson extends DefaultHandler {
     @Override
     public void characters(char[] ch, int start, int length) throws SAXException {
         // TODO check data types
-        if (valued) {
-            path.get(path.size() - 1).put(propertyName, new String(ch, start, length));
-        } else {
-            path.get(path.size() - 1).put(element, new String(ch, start, length));
+        String value = new String(ch, start, length).trim();
+        if (!value.isEmpty()){
+            if (valued) {
+                path.peek().put(propertyName, value);
+            } else {
+                path.peek().put(element, value);
+            }
+            path.push(mapper.createObjectNode());
+            valued = true;
         }
-        valued = true;
     }
 
     @Override
     public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
-        path.remove(path.size() - 1);
+        path.pop();
     }
 
     private void addItem (String key, ObjectNode obj) {
-        path.get(path.size() - 1).putPOJO(key, obj);
-        path.add(obj);
+        path.peek().putPOJO(key, obj);
+        path.push(obj);
     }
+
 }
