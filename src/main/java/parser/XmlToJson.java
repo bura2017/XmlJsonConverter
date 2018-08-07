@@ -130,12 +130,20 @@ public class XmlToJson extends DefaultHandler {
 
     @Override
     public void endElement(String namespaceURI, String localName, String qName) throws SAXException {
-        path.pop();
+        if (valued) {
+            path.pop();
+        } else {
+            valued = true;
+        }
     }
 
     @Override
     public void endDocument() {
-        data.put("namespace", namespace);
+//        data.put("namespace", namespace);
+    }
+
+    public String getNamespace() {
+        return namespace;
     }
 
     private void addItem (String key, ObjectNode obj) {

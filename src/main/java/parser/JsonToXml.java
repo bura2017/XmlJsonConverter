@@ -1,6 +1,7 @@
 package parser;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.POJONode;
 
 import java.io.StringWriter;
@@ -18,27 +19,20 @@ public class JsonToXml {
     final private String attrPrefix;
     final private String propertyName;
     final private String prefixType;
-    final private String xmlInsertName;
+    final private String namespace;
+    final private String schema;
+    private boolean ns_flag;
 
-    private Stack<String> path_field;
-    private Stack<JsonNode> path;
-    private String input;
-
-    public JsonToXml(String attrPrefix, String propertyName, String prefixType) {
+    public JsonToXml(String attrPrefix, String propertyName, String prefixType, String namespace, String schema) {
         this.attrPrefix = attrPrefix;
         this.propertyName = propertyName;
-        if (!prefixType.endsWith(":")) {
-            prefixType = prefixType.concat(":");
-        }
         this.prefixType = prefixType;
-        if (propertyName.equals("xmlInsertName")) {
-            xmlInsertName = "xmlInsertName#";
-        } else {
-            xmlInsertName = "xmlInsertName";
-        }
+        this.namespace = namespace != null ? namespace : "";
+        this.schema = schema;
     }
 
     public String parse (JsonNode input) throws XMLStreamException, FactoryConfigurationError {
+        this.ns_flag = true;
     	StringWriter writer = new StringWriter();
     	final XMLStreamWriter output = XMLOutputFactory.newInstance().createXMLStreamWriter(writer);
     	output.writeStartDocument();
@@ -51,12 +45,52 @@ public class JsonToXml {
 			for (Iterator<Map.Entry<String, JsonNode>> it = json.fields(); it.hasNext();) {
 				Map.Entry<String, JsonNode> field = it.next();
 				final JsonNode value = field.getValue();
-				writer.writeStartElement(field.getKey());
-				xmlRepresent(value, writer);
-				writer.writeEndElement();
+				if (propertyName.equals(field.getKey())) {
+                    writer.writeCharacters(value.asText());
+                } else if (!field.getKey().startsWith(attrPrefix)) {
+                    if (value.isArray()) {
+                        //todo handle array
+                        ArrayNode arrayNode = (ArrayNode) value;
+                        for (Iterator<JsonNode> jt = arrayNode.iterator(); jt.hasNext(); ) {
+                            JsonNode v = jt.next();
+                            writer.writeStartElement(field.getKey());
+                            this.writeAttributes(v, writer);
+                            xmlRepresent(v, writer);
+                            writer.writeEndElement();
+                        }
+                    } else {
+                        writer.writeStartElement(field.getKey());
+                        addNamespace(writer);
+                        this.writeAttributes(value, writer);
+                        xmlRepresent(value, writer);
+                        writer.writeEndElement();
+                    }
+                }
 			}
-		} else {
+        } else {
 			writer.writeCharacters(json.asText());
 		}
+    }
+    private void writeAttributes (JsonNode value, XMLStreamWriter writer) throws XMLStreamException {
+        for (Iterator<Map.Entry<String, JsonNode>> jt = value.fields(); jt.hasNext();) {
+            Map.Entry<String, JsonNode> f = jt.next();
+            if (f.getKey().startsWith(attrPrefix)) {
+                String localName = f.getKey().substring(attrPrefix.length());
+                if ("type".equals(localName)) {
+                    writer.writeAttribute(prefixType, namespace, localName, f.getValue().asText());
+                } else {
+                    writer.writeAttribute(localName, f.getValue().asText());
+                }
+            }
+        }
+    }
+    private void addNamespace (XMLStreamWriter writer) throws XMLStreamException {
+        if (ns_flag) {
+            writer.writeNamespace("", namespace);
+            ns_flag = false;
+            // TODO hard code!!!
+            writer.writeAttribute("xmlns:xsi", schema);
+        }
+
     }
 }

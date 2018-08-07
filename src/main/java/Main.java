@@ -25,9 +25,17 @@ public class Main extends DefaultHandler {
 
         XmlToJson parser_xml = new XmlToJson("_", "#");
         JsonNode data_json = parser_xml.parse(input);
+        String namespace = parser_xml.getNamespace();
+        String schema = "http://www.w3.org/2001/XMLSchema-instance";
 
-        JsonToXml parser_json = new JsonToXml("_", "#", "xsi");
+        JsonToXml parser_json = new JsonToXml("_", "#", "xsi", namespace, schema);
         String data_xml = parser_json.parse(data_json);
-        System.out.println(data_xml);
+
+        JsonNode data_check = parser_xml.parse(data_xml);
+        if (data_check.equals(data_json)) {
+            System.out.println("SUCCESS");
+        } else {
+            System.out.println("FAIL");
+        }
     }
 }
