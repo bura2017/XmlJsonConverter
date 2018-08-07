@@ -142,7 +142,8 @@ public class XmlToJson extends DefaultHandler {
         JsonNode node = path.peek().get(key);
         if (node == null) {
             // Common case
-            path.peek().putPOJO(key, obj);
+        	ObjectNode peek = path.peek();
+        	peek.set(key, obj);
             path.push(obj);
         } else if (node.isArray()) {
             // Case
@@ -187,7 +188,8 @@ public class XmlToJson extends DefaultHandler {
         JsonNode node = path.peek().get(key);
         if (node == null) {
             // Common case
-            path.peek().putPOJO(key, obj);
+        	ObjectNode peek = path.peek();
+        	peek.put(key, obj);
         } else if (node.isArray()) {
             // Case
             ArrayNode temp = (ArrayNode) node;
@@ -204,7 +206,8 @@ public class XmlToJson extends DefaultHandler {
         JsonNode node = path.peek().get(key);
         if (node == null) {
             // Common case
-            path.peek().putPOJO(key, obj);
+        	ObjectNode peek = path.peek();
+        	peek.put(key, obj);
         } else if (node.isArray()) {
             // Case
             ArrayNode temp = (ArrayNode) node;
@@ -221,7 +224,9 @@ public class XmlToJson extends DefaultHandler {
         JsonNode node = path.peek().get(key);
         if (node == null) {
             // Common case
-            path.peek().putPOJO(key, obj);
+        	ObjectNode peek = path.peek();
+        	peek.put(key, obj);
+            //peek.putPOJO(key, obj);
         } else if (node.isArray()) {
             // Case
             ArrayNode temp = (ArrayNode) node;

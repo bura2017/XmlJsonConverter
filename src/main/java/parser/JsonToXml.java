@@ -1,6 +1,7 @@
 package parser;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.POJONode;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -38,8 +39,16 @@ public class JsonToXml {
         String out = new String();
         for (Iterator<Map.Entry<String,JsonNode>> it = json.fields(); it.hasNext(); ) {
             Map.Entry<String,JsonNode> field = it.next();
-            out = out.concat("<").concat(field.getKey()).concat(">").concat(xmlRepresent(field.getValue()))
-                    .concat("</").concat(field.getKey()).concat(">");
+            final JsonNode value = field.getValue();
+            if (value instanceof POJONode) {
+				POJONode new_name = (POJONode) value;
+				final Object pojo = new_name.getPojo();
+				out = out.concat("<").concat(field.getKey()).concat(">").concat(xmlRepresent((JsonNode) pojo))
+	                    .concat("</").concat(field.getKey()).concat(">");
+			} else {
+				out = out.concat("<").concat(field.getKey()).concat(">").concat(xmlRepresent(value))
+	                    .concat("</").concat(field.getKey()).concat(">");
+			}
         }
         if (!out.isEmpty()) {
             return out;
