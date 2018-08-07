@@ -5,6 +5,9 @@ import parser.JsonToXml;
 import parser.XmlToJson;
 
 import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.stream.FactoryConfigurationError;
+import javax.xml.stream.XMLStreamException;
+
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
@@ -12,7 +15,7 @@ import java.nio.file.Paths;
 
 public class Main extends DefaultHandler {
 
-    public static void main (String [] args) throws IOException, ParserConfigurationException, SAXException {
+    public static void main (String [] args) throws IOException, ParserConfigurationException, SAXException, XMLStreamException, FactoryConfigurationError {
         if (args.length < 1) {
             throw new IOException();
         }

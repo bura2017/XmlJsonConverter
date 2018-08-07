@@ -3,9 +3,15 @@ package parser;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.POJONode;
 
+import java.io.StringWriter;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Stack;
+
+import javax.xml.stream.FactoryConfigurationError;
+import javax.xml.stream.XMLOutputFactory;
+import javax.xml.stream.XMLStreamException;
+import javax.xml.stream.XMLStreamWriter;
 
 public class JsonToXml {
     // settings
@@ -32,28 +38,25 @@ public class JsonToXml {
         }
     }
 
-    public String parse (JsonNode input) {
-        return xmlRepresent(input);
+    public String parse (JsonNode input) throws XMLStreamException, FactoryConfigurationError {
+    	StringWriter writer = new StringWriter();
+    	final XMLStreamWriter output = XMLOutputFactory.newInstance().createXMLStreamWriter(writer);
+    	output.writeStartDocument();
+    	xmlRepresent(input, output);
+    	output.writeEndDocument();
+        return writer.toString();
     }
-    public String xmlRepresent(JsonNode json) {
-        String out = new String();
-        for (Iterator<Map.Entry<String,JsonNode>> it = json.fields(); it.hasNext(); ) {
-            Map.Entry<String,JsonNode> field = it.next();
-            final JsonNode value = field.getValue();
-            if (value instanceof POJONode) {
-				POJONode new_name = (POJONode) value;
-				final Object pojo = new_name.getPojo();
-				out = out.concat("<").concat(field.getKey()).concat(">").concat(xmlRepresent((JsonNode) pojo))
-	                    .concat("</").concat(field.getKey()).concat(">");
-			} else {
-				out = out.concat("<").concat(field.getKey()).concat(">").concat(xmlRepresent(value))
-	                    .concat("</").concat(field.getKey()).concat(">");
+    public void xmlRepresent(JsonNode json, XMLStreamWriter writer) throws XMLStreamException {
+		if (json.isObject()) {
+			for (Iterator<Map.Entry<String, JsonNode>> it = json.fields(); it.hasNext();) {
+				Map.Entry<String, JsonNode> field = it.next();
+				final JsonNode value = field.getValue();
+				writer.writeStartElement(field.getKey());
+				xmlRepresent(value, writer);
+				writer.writeEndElement();
 			}
-        }
-        if (!out.isEmpty()) {
-            return out;
-        } else {
-            return json.asText();
-        }
+		} else {
+			writer.writeCharacters(json.asText());
+		}
     }
 }
