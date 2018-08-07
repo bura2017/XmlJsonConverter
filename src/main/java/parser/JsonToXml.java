@@ -2,12 +2,10 @@ package parser;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.POJONode;
 
 import java.io.StringWriter;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Stack;
 
 import javax.xml.stream.FactoryConfigurationError;
 import javax.xml.stream.XMLOutputFactory;
@@ -49,7 +47,6 @@ public class JsonToXml {
                     writer.writeCharacters(value.asText());
                 } else if (!field.getKey().startsWith(attrPrefix)) {
                     if (value.isArray()) {
-                        //todo handle array
                         ArrayNode arrayNode = (ArrayNode) value;
                         for (Iterator<JsonNode> jt = arrayNode.iterator(); jt.hasNext(); ) {
                             JsonNode v = jt.next();
