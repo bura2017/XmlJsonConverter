@@ -1,5 +1,6 @@
 # XmlJsonConverter
-~~~sh
+Use Example
+~~~
 import com.fasterxml.jackson.databind.JsonNode;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -41,4 +42,12 @@ public class Main extends DefaultHandler {
         }
     }
 }
+~~~
+Compile 
+~~~sh
+$ sbt compile
+~~~
+Run
+~~~sh
+$ sbt "run examples/data_1.xml"
 ~~~
