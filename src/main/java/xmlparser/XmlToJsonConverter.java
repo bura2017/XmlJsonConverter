@@ -1,4 +1,4 @@
-package parser;
+package xmlparser;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.Stack;
 
-public class XmlToJson extends DefaultHandler {
+public class XmlToJsonConverter extends DefaultHandler {
     // settings
     final private String attrPrefix;
     final private String propertyName;
@@ -33,7 +33,7 @@ public class XmlToJson extends DefaultHandler {
     private String element;
     private boolean valued;
 
-    public XmlToJson (String attrPrefix, String propertyName) {
+    public XmlToJsonConverter(String attrPrefix, String propertyName) {
         this.attrPrefix = attrPrefix;
         this.propertyName = propertyName;
     }

@@ -3,8 +3,8 @@
 import com.fasterxml.jackson.databind.JsonNode;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
-import parser.JsonToXml;
-import parser.XmlToJson;
+import jsonparser.JsonToXmlConverter;
+import xmlparser.XmlToJsonConverter;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.stream.FactoryConfigurationError;

@@ -1,4 +1,4 @@
-package parser;
+package jsonparser;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.node.ArrayNode;
@@ -12,7 +12,7 @@ import javax.xml.stream.XMLOutputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamWriter;
 
-public class JsonToXml {
+public class JsonToXmlConverter {
     // settings
     final private String attrPrefix;
     final private String propertyName;
@@ -21,7 +21,7 @@ public class JsonToXml {
     final private String schema;
     private boolean ns_flag;
 
-    public JsonToXml(String attrPrefix, String propertyName, String prefixType, String namespace, String schema) {
+    public JsonToXmlConverter(String attrPrefix, String propertyName, String prefixType, String namespace, String schema) {
         this.attrPrefix = attrPrefix;
         this.propertyName = propertyName;
         this.prefixType = prefixType;
