@@ -20,6 +20,9 @@
         </plugins>
     </build>
 
+    <name>XmlJsonConverter</name>
+    <description>Library converts xml to json and json to xml</description>
+
     <dependencies>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
@@ -39,5 +42,27 @@
             <version>2.7.6</version>
         </dependency>
     </dependencies>
+
+    <licenses>
+      <license>
+        <name>The Apache License, Version 2.0</name>
+        <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      </license>
+    </licenses>
+
+     <developers>
+        <developer>
+          <name>Valeriya Shvetcova</name>
+          <email>shvetcova@ispras.ru</email>
+          <organization>ISP RAS</organization>
+          <organizationUrl>http://www.ispras.ru/</organizationUrl>
+        </developer>
+      </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/bura2017/XmlJsonConverter.git</connection>
+        <developerConnection>scm:git:ssh://github.com:bura2017/XmlJsonConverter.git</developerConnection>
+        <url>https://github.com/bura2017/XmlJsonConverter/tree/master</url>
+    </scm>
 
 </project>
